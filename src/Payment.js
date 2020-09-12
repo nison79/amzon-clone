@@ -28,7 +28,7 @@ function Payment() {
 
         const getClientSecret = async () => {
                 const response = await axios ({
-                    method: './post',
+                    method: 'post',
                     //stripe expects the total in a currencies subunits
                     url: `/payment/create?total =${getBasketTotal(basket)* 100}`
                 })
