@@ -2,17 +2,33 @@ import React from 'react';
 import './Header.css';
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket"
+import { Link } from 'react-router-dom';
+import { useStateValue } from './StateProvider';
+import { auth } from "./firebase";
+
 
 
 
 
 function Header() {
+
+    const [{ basket,user }, dispatch] = useStateValue();
+
+    const handleAuthetication = () => {
+        if (user) {
+            auth.signOut();
+        }
+    }
+
     return (
         <div className ="header">
+            <Link to = "/">
             <img 
             className = "header_logo"
-            src = "https://1000logos.net/wp-content/uploads/2016/10/Colors-Amazon-Logo.jpg"
+            src = "https://completemusicupdate.com/wp-content/uploads/2016/05/amazon1250.jpg"
             ></img>
+
+            </Link>
 
 
             <div 
@@ -26,15 +42,17 @@ function Header() {
         
 
             <div className = "header_nav">
-
-                <div className ="header_option">
+                <Link to = {!user &&'/login'}>
+                <div  onClick={handleAuthetication} className = "header_option">
                     <span className = "header_option_lineOne">
-                    Hello Guest 
+                    Hello
+                    {!user ?
+                    'Guest': user.email}
                     </span>
-                    <span className = "header_option_lineTwo">
-                    Sign In
-                    </span>
+                    <span className = "header_option_lineTwo">{user ?
+                    'Sign Out' : 'Sign In'} </span>
                 </div>
+                </Link>
 
                 <div className ="header_option">
                     <span className = "header_option_lineOne">
@@ -54,10 +72,13 @@ function Header() {
                     </span>
                 </div>
 
+
+                <Link to ="/checkout">
                 <div className ="header_optionBasket">
                     <ShoppingBasketIcon />
-                    <span className = "header_option_lineTwo header_basketCount">0</span>
+                    <span className = "header_option_lineTwo header_basketCount">{basket?.length}</span>
                 </div>
+                </Link>
 
             </div>
         </div>

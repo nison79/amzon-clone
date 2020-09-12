@@ -1,0 +1,46 @@
+
+
+
+for animate section of the page
+https://github.com/joshwcomeau/react-flip-move
+
+Deployment
+
+$ firebase login
+
+$firebase init
+
+
+$ npm run build
+
+for whatever change in the source i must npm run build again
+
+
+$ firebase deploy
+
+
+
+
+STRIPE 
+
+$ npm install @stripe/stripe-js
+
+$ npm i @stripe/react-stripe-js
+
+
+
+FIREBASE cloud functions
+
+$ firebase init //and pick Functions
+
+$ cd functions
+
+in index.js in functions 
+
+npm i express
+
+npm i cors
+
+npm i stripe
+
+$ firebase emulators:start
