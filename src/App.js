@@ -9,9 +9,10 @@ import { auth } from './firebase';
 import { useStateValue} from "./StateProvider";
 import Payment  from './Payment';
 import { loadStripe } from "@stripe/stripe-js";
-import {Elements} from "@stripe/react-stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
-const promise = loadStripe("pk_test_51HQ8gSCWB6zAeUTtAIW7y1IyzyLuZVQ6Bkwa0Z2hPuz9NEMXYMCFi4QAfOAyokLcOjZpPzVFJn9JyJuIe7uiggKF00DflRW6IQ");
+const promise = loadStripe(
+  "pk_test_51HQ8gSCWB6zAeUTtAIW7y1IyzyLuZVQ6Bkwa0Z2hPuz9NEMXYMCFi4QAfOAyokLcOjZpPzVFJn9JyJuIe7uiggKF00DflRW6IQ");
 
 
 function App() {

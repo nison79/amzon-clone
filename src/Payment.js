@@ -31,7 +31,7 @@ function Payment() {
                     method: 'post',
                     //stripe expects the total in a currencies subunits
                     url: `/payment/create?total =${getBasketTotal(basket)* 100}`
-                })
+                });
                 setClientSecret(response.data.clientSecret)
         }
 
@@ -122,9 +122,8 @@ function Payment() {
                                 <div className = "payment__priceContainer">
                                     <CurrencyFormat
                                         renderText = {(value) => (
-                                            <>
-                                                <h3>Order Total: {value}</h3>
-                                            </>
+                                            
+                                            <h3>Order Total: {value}</h3>
                                         )}
                                         decimalScale = {2}
                                         value= {getBasketTotal(basket)}
