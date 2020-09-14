@@ -19,17 +19,17 @@ app.use(express.json());
 app.get("/", (request, response) => response.status(200).send("hello world"));
 
 app.post("/payments/create", async (request, response) => {
-  const total = request.query.total;
+    const total = request.query.total;
 
-  console.log("payment received boom", total);
+    console.log("payment received boom", total);
 
-  const paymentIntend = await stripe.paymentIntends.create({
+    const paymentIntend = await stripe.paymentIntends.create({
     amount: total,
     currency: "usd",
-  });
-  response.status(201).send({
+    });
+    response.status(201).send({
     clientSecret: paymentIntend.client_secret,
-  });
+    });
 });
 
 //Listen command
