@@ -16,7 +16,6 @@ function Payment() {
     const stripe = useStripe();
     const elements = useElements();
 
-    
     const [succeeded,setSucceeded] = useState(false);
     const [processing,setProcessing] = useState("");
     const [error,setError] = useState(null);
@@ -31,7 +30,7 @@ function Payment() {
                     method: 'post',
                     //stripe expects the total in a currencies subunits
                     url: `/payment/create?total =${getBasketTotal(basket)* 100}`
-                });
+                })
                 setClientSecret(response.data.clientSecret)
         }
 

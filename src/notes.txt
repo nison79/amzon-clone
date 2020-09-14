@@ -27,7 +27,7 @@ $ npm install @stripe/stripe-js
 
 $ npm i @stripe/react-stripe-js
 
-
+1:50:00 IS THE TIME IN THE VIDEO OF DAY FOUR WHERE THE BACK END comes
 
 FIREBASE cloud functions
 
