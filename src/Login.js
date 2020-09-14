@@ -45,7 +45,7 @@ function Login() {
         <img 
                 className = "login__logo" 
                 src = "https://1000logos.net/wp-content/uploads/2016/10/Amazon-Logo.png" 
-
+                alt=""
         />
         </Link>  
 

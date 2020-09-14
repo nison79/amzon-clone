@@ -18,7 +18,7 @@ const promise = loadStripe(
 
 
 function App() {
-  const [{ }, dispatch] = useStateValue();
+  const [{}, dispatch] = useStateValue();
 
   useEffect(() => {
     //will only run when the app component loads..it's like an if state
