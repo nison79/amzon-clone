@@ -9,7 +9,7 @@ https://github.com/joshwcomeau/react-flip-move
 
 
 
-Deployment
+//Deployment
 
 $ firebase login
 
@@ -26,7 +26,7 @@ $ firebase deploy
 
 
 
-STRIPE 
+//STRIPE 
 
 $ npm install @stripe/stripe-js
 
@@ -37,7 +37,7 @@ $ npm i @stripe/react-stripe-js
 
 
 
-FIREBASE cloud functions
+//FIREBASE cloud functions
 
 $ firebase init //and pick Functions
 
