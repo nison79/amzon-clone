@@ -10,6 +10,8 @@ import { useStateValue} from "./StateProvider";
 import Payment  from './Payment';
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
+import Orders from "./Orders"
+
 
 const promise = loadStripe(
   "pk_test_51HQ8gSCWB6zAeUTtAIW7y1IyzyLuZVQ6Bkwa0Z2hPuz9NEMXYMCFi4QAfOAyokLcOjZpPzVFJn9JyJuIe7uiggKF00DflRW6IQ");
@@ -20,21 +22,22 @@ function App() {
 
   useEffect(() => {
     //will only run when the app component loads..it's like an if state
-    auth.onAuthStateChanged(authUser =>{
-      console.log('THE USER IS >>>> ', authUser);
+    auth.onAuthStateChanged((authUser) => {
+      console.log("THE USER IS >>> ", authUser);
 
       if (authUser) {
         //the user just logged in / the user logged in
         dispatch({
-          type: 'SET_USER',
-          user : authUser
-        })
-      } else{
-        //the user is logged out
+          type: "SET_USER",
+          user: authUser,
+        });
+
+      } else {
         dispatch({
-          type:"SET_USER",
-          user:null
-        })
+        //the user is logged out
+        type: "SET_USER",
+        user: null,
+      });
       }
     })
 
@@ -42,31 +45,30 @@ function App() {
   return (
 
     <Router>
-    <div className="app">
-      
-
-
-      <Switch>
-      <Route path = "/login">
-          <Login />
-        </Route>
-        <Route path = "/checkout">
-          <Header />
-          <Checkout />
-        </Route>
-        <Route path = "/payment">
-          <Header />
-          <Elements stripe ={promise}>
-            <Payment />
-          </Elements>
-        </Route>
-        <Route path = "/"> 
-          <Header />      
-          <Home />
-        </Route>
-      </Switch>
-    
-        
+      <div className="app">
+        <Switch>
+          <Route path="/orders">
+            <Header />
+            <Orders />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/checkout">
+            <Header />
+            <Checkout />
+          </Route>
+          <Route path="/payment">
+            <Header />
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
+          </Route>
+          <Route path="/">
+            <Header />
+            <Home />
+          </Route>
+        </Switch>
       </div>
     </Router>
   );
