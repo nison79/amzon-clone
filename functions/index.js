@@ -25,12 +25,14 @@ app.get('/',(request, response) => response.status(200).send
 
 app.post('/payments/create', async (request, response) => {
     
-})
+}) 
 
 
 
 //Listen command
-exports.api = functions.https.onRequest(app)
+
+
+    exports.api = functions.https.onRequest(app)
 
 
 // http://localhost:5001/fir-aa8ca/us-central1/api
